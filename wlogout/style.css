@@ -1,0 +1,49 @@
+* {
+	background-image: none;
+}
+window {
+	background-color: transparent;
+	background-image: url("/home/wynvern/.config/wlogout/screenshot/blurred_screenshot.png");
+	background-repeat: no-repeat;
+}
+button {
+	color: #ffffff;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	margin: 8px;
+	background-position: center;
+	background-size: 25%;
+	font-weight: bold;
+	border-radius: 25px;
+}
+
+button:focus,
+button:active,
+button:hover {
+	background-color: rgba(0, 0, 0, 0.801);
+}
+
+#lock {
+	background-image: url("/home/wynvern/.config/wlogout/lock-02.png");
+}
+
+#logout {
+	background-image: url("/home/wynvern/.config/wlogout/log-out-01.png");
+}
+
+#suspend {
+	background-image: url("/home/wynvern/.config/wlogout/pause-square.png");
+}
+
+#hibernate {
+	background-image: url("/home/wynvern/.config/wlogout/minus-square.png");
+}
+
+#shutdown {
+	background-image: url("/home/wynvern/.config/wlogout/stop.png");
+}
+
+#reboot {
+	background-image: url("/home/wynvern/.config/wlogout/refresh-cw-01.png");
+}

@@ -1,0 +1,153 @@
+{
+	"layer": "top",
+	"height": 20,
+	"margin": 6,
+	"spacing": 16,
+	"modules-left": [
+		"hyprland/window",
+		"user",
+		"custom/media",
+		"custom/explorer",
+		"custom/chrome"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"idle_inhibitor",
+		"pulseaudio",
+		"cpu",
+		"custom/divider",
+		"memory",
+		"custom/divider",
+		"temperature",
+		"clock"
+	],
+	"user": {
+		"interval": 120,
+		"format": "",
+		"avatar": "/home/wynvern/.config/profile.png",
+		"icon": true,
+		"width": 30,
+		"height": 30
+	},
+	"hyprland/window": {
+		"format": "  {title}",
+		"max-length": 70,
+		"separate-outputs": true
+	},
+	"hyprland/workspaces": {
+		"format": "",
+		"persistent_workspaces": {
+			"*": 3
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+	"custom/explorer": {
+		"on-click": "nautilus",
+		"format": "<span font='15'>󰉋</span>"
+	},
+	"custom/chrome": {
+		"on-click": "google-chrome-stable",
+		"format": "<span font='15'></span>"
+	},
+	"custom/divider": {
+		"format": "/"
+	},
+	"mpd": {
+		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+		"format-disconnected": "Disconnected ",
+		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+		"unknown-tag": "N/A",
+		"interval": 2,
+		"consume-icons": {
+			"on": " "
+		},
+		"random-icons": {
+			"off": "<span color=\"#f53c3c\"></span> ",
+			"on": " "
+		},
+		"repeat-icons": {
+			"on": " "
+		},
+		"single-icons": {
+			"on": "1 "
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl previous",
+		"on-scroll-down": "playerctl next",
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"cpu": {
+		"format": "󰍛 {usage}%",
+		"tooltip": false,
+		"on-click": "/home/wynvern/Documents/scripts/htop.sh"
+	},
+	"memory": {
+		"format": " {}%",
+		"on-click": "/home/wynvern/Documents/scripts/htop.sh"
+	},
+	"temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"critical-threshold": 80,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			"",
+			"",
+			""
+		],
+		"on-click": "/home/wynvern/Documents/scripts/temperature.sh"
+	},
+	"pulseaudio": {
+		"ignored-sinks": [
+			"Easy Effects Sink"
+		],
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": " {volume}%",
+		"format-bluetooth-muted": " {format_source}",
+		"format-muted": " {format_source}",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	},
+	"custom/media": {
+		"format": "{icon} {}",
+		"return-type": "json",
+		"max-length": 40,
+		"format-icons": {
+			"spotify": "",
+			"default": "🎜"
+		},
+		"escape": true,
+		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+	}
+}
