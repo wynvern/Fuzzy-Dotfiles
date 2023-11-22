@@ -4,17 +4,17 @@
 	"margin": 6,
 	"spacing": 16,
 	"modules-left": [
-		"hyprland/window",
 		"user",
-		"custom/media",
 		"custom/explorer",
-		"custom/chrome"
+		"custom/chrome",
+		"hyprland/window"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
 	],
 	"modules-right": [
 		"idle_inhibitor",
+		"custom/media",
 		"pulseaudio",
 		"cpu",
 		"custom/divider",
